@@ -31,6 +31,15 @@ comments: true
 * 이미지는 clip-board 에서 바로 올리는 것은 안되는 것 같고
   * assets/images 에 이미지 저장하고  \![Filename\](/assets/images/filename.png) 처럼 저장하면 됨.
 
+## 설치 후 겪은 문제점.
+* Terminal에서 jekyll을 띄우면(포트: 4000) 아무 문제 없이 잘 되는데 Atom에 포함된? jekyll을 띄우면(포트: 3000) 포스팅 된 글을 클릭했을때 404 오류가 발생했다.
+* 404 오류가 발생하는 원인을 보니 링크가 http://localhost:3000/2018/02/install-atom-with-jekyll.html 처럼 맨뒤에 html 이 붙은 파일을 찾고 있었다.
+* _config.yml 파일의 permalink 부분을 보면 html이 없는데에도 html을 찾고 있었음.
+  * permalink: /:year/:month/:title
+* .html 없이 하려고 했지만 방법을 찾지 못하고 .html을 추가하는 것으로 해결함.
+  * permalink: /:year/:month/:title.html
+* 다행히 Terminal에서 띄운 jekyll과 github는 .html을 추가해도 잘 동작한다.
+
 ## Reference
 * http://futurecreator.github.io/2016/06/14/atom-as-markdown-editor/
 * https://www.clien.net/service/board/lecture/8870683
